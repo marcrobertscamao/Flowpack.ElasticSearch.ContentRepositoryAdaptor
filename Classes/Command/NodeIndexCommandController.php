@@ -375,7 +375,7 @@ class NodeIndexCommandController extends CommandController
         $output = '';
         if ($workspace === null) {
             foreach ($this->workspaceRepository->findAll() as $iteratedWorkspace) {
-                $output .= $this->executeInternalCommand('buildWorkspaceInternal', $buildWorkspaceCommandOptions($iteratedWorkspace, $dimensionsValues, $limit, $postfix));
+                $output .= $this->executeInternalCommand('buildWorkspaceInternal', $buildWorkspaceCommandOptions($iteratedWorkspace, $dimensionsValues, $limit, $postfix)) . PHP_EOL;
             }
         } else {
             $output = $this->executeInternalCommand('buildWorkspaceInternal', $buildWorkspaceCommandOptions($workspace, $dimensionsValues, $limit, $postfix));
